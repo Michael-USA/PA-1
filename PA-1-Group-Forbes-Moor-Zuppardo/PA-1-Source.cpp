@@ -9,7 +9,8 @@
 #include <chrono> // for measuring time intervals
 #include "quickSort.h"; // for quick sort, taken from GeeksforGeeks
 
-
+using std::cout;
+using std::endl;
 std::ofstream fout;
 int gcd_BF_v1(int, int); // the gcd algorithm methods, follows the prompt's naming scheme
 int gcd_BF_v2(int, int);
@@ -32,6 +33,8 @@ int testNum = 0; // FIXME delete
 
 int main()
 {
+    cout << "Generating results..." << endl;
+
     // populate randNumArr with 1000 random number pairs using rand()
     for (int i = 0; i <= 999; ++i)
     {
@@ -125,13 +128,16 @@ int main()
 
     // record conclusions on comparative algorithm performance in Conclusions.txt
     fout.open("Conclusions.txt");
-    fout << "(1) Out of 1,000 pairs of integers, brute-force (v2) outperformed brute-force (v1) in " << numFaster(gcdTimeArr2, gcdTimeArr1) << " pairs; and the average saved time for these " << numFaster(gcdTimeArr2, gcdTimeArr1) << " pairs of integers was "<< fasterAvg(gcdTimeArr2, gcdTimeArr1) << " nanoseconds.\n";
+    fout << "(1) Out of 1,000 pairs of integers, brute-force (v2) outperformed brute-force (v1) in " << numFaster(gcdTimeArr2, gcdTimeArr1) << " pairs; and the average saved time for these " << numFaster(gcdTimeArr2, gcdTimeArr1) << " pairs of integers was " << fasterAvg(gcdTimeArr2, gcdTimeArr1) << " nanoseconds.\n";
     fout << "(2) Out of 1,000 pairs of integers, the original version of Euclid outperformed brute-force (v1) in " << numFaster(gcdTimeArr3, gcdTimeArr1) << " pairs; and the average saved time for these " << numFaster(gcdTimeArr3, gcdTimeArr1) << " pairs of integers was " << fasterAvg(gcdTimeArr3, gcdTimeArr1) << " nanoseconds.\n";
     fout << "(3) Out of 1,000 pairs of integers, the original version of Euclid outperformed brute-force (v2) in " << numFaster(gcdTimeArr3, gcdTimeArr2) << " pairs; and the average saved time for these " << numFaster(gcdTimeArr3, gcdTimeArr2) << " pairs of integers was " << fasterAvg(gcdTimeArr3, gcdTimeArr1) << " nanoseconds.\n";
     fout << "(4) Out of 1,000 pairs of integers, the second version of Euclid outperformed the original version of Euclid in " << numFaster(gcdTimeArr4, gcdTimeArr3) << " pairs; and the average saved time for these " << numFaster(gcdTimeArr4, gcdTimeArr3) << " pairs of integers was " << fasterAvg(gcdTimeArr4, gcdTimeArr3) << " nanoseconds\n";
     fout << "(5) Out of 1,000 pairs of integers, the second version of Euclid outperformed brute-force (v1) in " << numFaster(gcdTimeArr4, gcdTimeArr1) << " pairs; and the average saved time for these " << numFaster(gcdTimeArr4, gcdTimeArr1) << " pairs of integers was " << fasterAvg(gcdTimeArr4, gcdTimeArr1) << " nanoseconds.\n";
     fout << "(6) Out of 1,000 pairs of integers, the second version of Euclid outperformed brute-force (v2) in " << numFaster(gcdTimeArr4, gcdTimeArr2) << " pairs; and the average saved time for these " << numFaster(gcdTimeArr4, gcdTimeArr2) << " pairs of integers was " << fasterAvg(gcdTimeArr4, gcdTimeArr2) << " nanoseconds.";
     fout.close();
+
+    cout << "Results generated! Check your file folder for the data." << endl;
+    system("pause");
 
     return 0;
 }
